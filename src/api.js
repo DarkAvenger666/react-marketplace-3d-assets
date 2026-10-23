@@ -23,6 +23,13 @@ export function uploadAsset(formData, onProgress) {
   })
 }
 
+export async function fetchAsset(id) {
+  const res = await fetch(`/api/assets/${id}`)
+  if (res.status === 404) throw new Error('Ассет не найден')
+  if (!res.ok) throw new Error('Не удалось загрузить ассет')
+  return res.json()
+}
+
 export function formatSize(bytes) {
   if (bytes < 1024 * 1024) return `${Math.max(1, Math.round(bytes / 1024))} КБ`
   return `${(bytes / 1024 / 1024).toFixed(1)} МБ`
@@ -30,4 +37,13 @@ export function formatSize(bytes) {
 
 export function formatPrice(price) {
   return Number(price) === 0 ? 'Бесплатно' : `$${Number(price).toFixed(2)}`
+}
+
+export const ASSET_TYPES = {
+  MODEL_3D: '3D-модель',
+  TEXTURE: 'Текстура',
+  MATERIAL: 'Материал',
+  ANIMATION: 'Анимация',
+  SOUND: 'Звук',
+  OTHER: 'Другое',
 }

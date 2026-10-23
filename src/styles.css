@@ -58,12 +58,13 @@ main { padding: clamp(1rem, 4vw, 3rem); max-width: 1280px; margin: 0 auto; }
 .card__ext { font-family: 'Bricolage Grotesque', sans-serif; font-size: 2rem; font-weight: 700; color: var(--ink-soft); }
 .card__body { padding: 1rem; display: flex; flex-direction: column; gap: .6rem; flex: 1; }
 .card__title { font-size: 1.1rem; }
+.card__title a { color: inherit; text-decoration: none; }
 .card__desc {
   margin: 0; color: var(--ink-soft); font-size: .9rem; line-height: 1.45;
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
 }
 .card__meta { display: flex; justify-content: space-between; font-size: .85rem; color: var(--ink-soft); margin-top: auto; }
-.card__price { color: var(--ink); font-weight: 500; }
+.card__price .card__type { color: var(--ink); font-weight: 500; }
 
 .pagination { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: .4rem; margin-top: 2rem; }
 .pagination__page {
